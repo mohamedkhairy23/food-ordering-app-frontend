@@ -68,7 +68,7 @@ const SearchBar = ({ onSubmit, onReset, placeHolder }: Props) => {
           onClick={handleReset}
           type="button"
           variant="outline"
-          className="rounded-full"
+          className="rounded-full hidden md:block"
         >
           Clear
         </Button>
