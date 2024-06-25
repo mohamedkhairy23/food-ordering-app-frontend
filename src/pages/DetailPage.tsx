@@ -20,7 +20,10 @@ const DetailPage = () => {
   const { restaurantId } = useParams();
   const { restaurant, isLoading } = useGetRestaurant(restaurantId);
 
-  const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [cartItems, setCartItems] = useState<CartItem[]>(() => {
+    const storedCartItems = sessionStorage.getItem(`cartItems-${restaurantId}`);
+    return storedCartItems ? JSON.parse(storedCartItems) : [];
+  });
 
   const addItemToCart = (menuItem: MenuItemType) => {
     setCartItems((prevCartItems) => {
@@ -44,6 +47,26 @@ const DetailPage = () => {
         updatedCartItems = [...prevCartItems, { ...menuItem, quantity: 1 }];
       }
 
+      sessionStorage.setItem(
+        `cartItems-${restaurantId}`,
+        JSON.stringify(updatedCartItems)
+      );
+
+      return updatedCartItems;
+    });
+  };
+
+  const removeItemFromCart = (cartItem: CartItem) => {
+    setCartItems((prevCartItems) => {
+      const updatedCartItems = prevCartItems.filter(
+        (item) => cartItem._id !== item._id
+      );
+
+      sessionStorage.setItem(
+        `cartItems-${restaurantId}`,
+        JSON.stringify(updatedCartItems)
+      );
+
       return updatedCartItems;
     });
   };
@@ -53,7 +76,7 @@ const DetailPage = () => {
   }
 
   return (
-    <div className="flex flex-col gap-10">
+    <div className="flex flex-col w-full items-center justify-center gap-10">
       <AspectRatio ratio={16 / 5}>
         <img
           className="rounded-md object-cover h-full w-full"
@@ -61,7 +84,7 @@ const DetailPage = () => {
           alt={restaurant?.restaurantName}
         />
       </AspectRatio>
-      <div className="grid md:grid-cols-[4fr_2fr] gap-5">
+      <div className="grid md:grid-cols-[2fr_1fr] gap-5 sm:w-full">
         <div className="flex flex-col gap-4">
           <RestaurantInfo restaurant={restaurant} />
           <span className="text-2xl font-bold tracking-tight">Menu</span>
@@ -75,7 +98,11 @@ const DetailPage = () => {
 
         <div>
           <Card>
-            <OrderSummary restaurant={restaurant} cartItems={cartItems} />
+            <OrderSummary
+              restaurant={restaurant}
+              cartItems={cartItems}
+              removeFromCart={removeItemFromCart}
+            />
           </Card>
         </div>
       </div>
