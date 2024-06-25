@@ -54,6 +54,7 @@ export const useGetRestaurant = (restaurantId?: string) => {
   const { data: restaurant, isLoading } = useQuery(
     ["getRestaurant", restaurantId],
     getMyRestaurantRequest,
+    // Enabled that query only when you have a restaurant id
     { enabled: !!restaurantId }
   );
 
