@@ -13,7 +13,7 @@ export const ORDER_STATUS: OrderStatusInfo[] = [
     progressValue: 0,
   },
   {
-    label: "Awaiting Restaurant Confirmation",
+    label: "Awaiting Restaurant Confirmation (Paid Sucessfully)",
     value: "paid",
     progressValue: 25,
   },
