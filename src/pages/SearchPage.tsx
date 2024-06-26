@@ -101,8 +101,9 @@ const SearchPage = () => {
         </div>
 
         {results.data.map((restaurant) => (
-          <SearchResultCard restaurant={restaurant} />
+          <SearchResultCard key={restaurant._id} restaurant={restaurant} />
         ))}
+
         {results.data.length > 0 && (
           <PaginationSelector
             page={results.pagination.page}
