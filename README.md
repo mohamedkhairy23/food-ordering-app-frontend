@@ -1,3 +1,17 @@
+## I used in this project:
+## Client
+- React + Typescript
+- React Query
+- React hook form with ZOD for validation
+- Tailwind with Shadcn UI
+- Stripe payment gateway 
+## Server
+- Typescript + NodeJS + ExpressJS + Mongo database
+- Stripe payment gateway and Stripe Hooks for validating order status and order total price.
+- Auth0 for authentication and authorization.
+- express validator for validating requests.
+
+
 ![1](https://github.com/mohamedkhairy23/food-ordering-app-frontend/assets/82667987/46c3d370-1482-4e33-9b3c-d9bb09b56a77)
 ![2](https://github.com/mohamedkhairy23/food-ordering-app-frontend/assets/82667987/972f7a90-1252-457f-a51c-cafd1b2fc575)
 ![3](https://github.com/mohamedkhairy23/food-ordering-app-frontend/assets/82667987/0a22aec6-4bb3-4349-ac81-b3a76d2d117a)
