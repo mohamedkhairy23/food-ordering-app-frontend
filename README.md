@@ -5,7 +5,7 @@
 - React hook form with ZOD for validation
 - Tailwind with Shadcn UI
 - Stripe payment gateway 
-## Server
+## Server https://github.com/mohamedkhairy23/food-ordering-app-backend
 - Typescript + NodeJS + ExpressJS + Mongo database
 - Stripe payment gateway and Stripe Hooks for validating order status and order total price.
 - Auth0 and JWT for authentication and authorization.
