@@ -2,6 +2,7 @@
 ## Client
 - React + Typescript
 - React Query
+- Auth0 for authentication and authorization.
 - React hook form with ZOD for validation
 - Tailwind with Shadcn UI
 - Stripe payment gateway 
